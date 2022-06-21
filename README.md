@@ -1,22 +1,23 @@
 # License Scraper with Multi Plattform Support
-A utility that scrapes license name and url based on the exact package name. Supported plattforms:
-- npmjs.com
-- ruby gems
-- (helper) github
-- (todo) cocoapods
+A utility that scrapes a packages license name and the url to the package license (usually from github). Supported plattforms:
+- npmjs.com ✅
+- github (helper) ✅
+- TODO 👷: ruby gems 
+- TODO 👷: cocoapods 
 
 # Examples
 ```js
 // NPM (uses github helper)
-const { name, url } = await LicenseScraper.npm(npmPackageName);
-
-// RubyGems (uses github helper)
-const { name, url } = await LicenseScraper.npm(rubyGemName);
-
-// CocoaPods (uses github helper)
-const { name, url } = await LicenseScraper.cocoaPods(podName);
+await LicenseScraper.npmPackage("opensea-scraper");
 
 // Github (helper)
-const { name, url } = await LicenseScraper.github(githubPath);
+// @TODO
+await LicenseScraper.githubRepo("dcts/opensea-scraper");
+
+// RubyGems (uses github helper)
+// @TODO
+
+// CocoaPods (uses github helper)
+// @TODO
 ```
 
