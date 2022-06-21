@@ -11,7 +11,6 @@ A utility that scrapes a packages license name and the url to the package licens
 await LicenseScraper.npmPackage("opensea-scraper");
 
 // Github (helper)
-// @TODO
 await LicenseScraper.githubRepo("dcts/opensea-scraper");
 
 // RubyGems (uses github helper)

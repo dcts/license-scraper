@@ -1,6 +1,6 @@
 {
   "name": "license-scraper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Scraping license data from NPM, RubyGems, CocoaPods and Github.",
   "main": "src/index.js",
   "scripts": {
@@ -8,6 +8,19 @@
   },
   "author": "dcts",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dcts/license-scraper.git"
+  },
+  "keywords": [
+    "scraper",
+    "license",
+    "licenses",
+    "npm package",
+    "ruby gems",
+    "cocoapods",
+    "github"
+  ],
   "dependencies": {
     "axios": "^0.27.2",
     "jsdom": "^20.0.0"
