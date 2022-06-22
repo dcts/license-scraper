@@ -12,6 +12,7 @@ Donate        🙏 BTC: bc1qq5qn96ahlqjxfxz2n9l20kem8p9nsz5yzz93f7
   axios                 : external package
   JSDOM                 : external package
   LicenseScraper        : instance of license scraper utility
+  getDom                : gets JSDOM object from a url (makes request and pasted html to JSDOM)
 
 ==== EXAMPLES ===
   await LicenseScraper.npm("opensea-scraper");
