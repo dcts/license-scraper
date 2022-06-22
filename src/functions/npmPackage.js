@@ -5,17 +5,21 @@ const githubRepo = require("./githubRepo.js");
  * scrape license name and url for a given npm package
  */
 const npmPackage = async (packageName) => {
+  // scrape npm
   const url = `https://npmjs.com/package/${packageName}`;
   const dom = await getDom(url);
   const licenseNameNpm = _npmLicenseName(dom);
-  const githubPath = _npmGithubPath(dom);
+  
+  // scrape github for additional info
   let licenseUrl = null;
   let licenseNameGithub = null; 
+  const githubPath = _npmGithubPath(dom);
   if (githubPath) {
     const githubResult = await githubRepo(githubPath);
     licenseNameGithub = githubResult.licenseNameGithub;
     licenseUrl= githubResult.licenseUrl;
   }
+  // collect results
   return {
     licenseName: _pickLicense(licenseNameNpm, licenseNameGithub), // automatically chose best result 
     licenseUrl: licenseUrl, // scraped from github
