@@ -26,7 +26,7 @@ This repository contains bash scripts that allow you to print all dependencies t
 2. run the following code
 ```bash
 # directory and filename of the output file
-outputFilePath = "/home/dcts/Schreibtisch/NODE_MODULES.txt" 
+outputFilePath = "/your/path/yourFilename.txt" 
 
 # run and save output to file
 pmodules > outputFilePath
