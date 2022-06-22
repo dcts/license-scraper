@@ -22,14 +22,21 @@ const rubyGem = async (rubyGemName) => {
   return {
     licenseName: _pickLicense(licenseNameRubygems, licenseNameGithub), // automatically chose best result 
     licenseUrl: licenseUrl, // scraped from github
-    licenseNameGithub: licenseNameGithub, // licenseName from github scraping
-    licenseNameRubygems: licenseNameRubygems,       // licenseName from rubygems scraping
+    licenseNameGithub: licenseNameGithub,     // licenseName from github scraping
+    licenseNameRubygems: licenseNameRubygems, // licenseName from rubygems scraping
     githubPath: githubPath,
   };
 };
+
+/**
+ * Helper Functions
+ */
+// automatically picks best result
 function _pickLicense(licenseNameRubygems, licenseNameGithub) {
   return licenseNameGithub || licenseNameRubygems || null;
 }
+
+// scrape license name from rubygems
 function _rubygemsLicenseName(dom, rubyGemName) {
   try {
     const targetH2 = dom.window.document.querySelectorAll(".gem__aside > h2")[2];
@@ -39,12 +46,14 @@ function _rubygemsLicenseName(dom, rubyGemName) {
     return null;
   }
 }
+// scrape github repo path from rubygems
 function _rubygemsGithubPath(dom, rubyGemName) {
   try {
     const document = dom.window.document;
-    const XPathResult = dom.window.XPathResult;
-    const matchingElement = document.evaluate("//a[text()='Source Code']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    return matchingElement.href.split("github.com/")[1];
+    const encodedGithubParams = document.querySelector("span#github-btn").dataset.params.split("&");
+    const user = encodedGithubParams.find(str => str.startsWith("user")).split("user=")[1];
+    const repo = encodedGithubParams.find(str => str.startsWith("repo")).split("repo=")[1];
+    return `${user}/${repo}`;
 
   } catch (err) {
     console.warn(`WARN: no github repo found for gem: ${rubyGemName}`);
