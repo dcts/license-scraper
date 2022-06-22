@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# script is used to print all node dependencies
+# of a given node project. To be usable, please
+# make pmodules executable and add it to your path.
+# You can read more under the section "Scripts" 
+# => https://github.com/dcts/license-scraper/#Scripts
+
+# USAGE:
+# 1. cd in your node projects `node_modules` folder
+# 2. run in your terminal: pmodules > /my/path/myOutputFile.txt
+# 3. myOutputFile.txt contains a list of all dependant npm packages
+
+for f in *; do
+    if [ -d "$f" ]; then
+        # $f is a directory
+        if [[ $f = @* ]]; then # directory starts with @
+          for dir in $f/*/; do echo "$dir"; done
+        else
+          echo $f
+        fi
+    fi
+done

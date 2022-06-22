@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# script is used to print all gems of a given
+# rails project. To be usable, please make pgems 
+# executable and add it to your path.
+# You can read more under the section "Scripts" 
+# => https://github.com/dcts/license-scraper/#Scripts
+
+# USAGE:
+# 1. cd in your rails project
+# 2. run in your terminal: pgems > /my/path/myOutputFile.txt
+# 3. myOutputFile.txt contains a list of all dependant gems
+
+bundle list
