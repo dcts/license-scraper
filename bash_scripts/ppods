@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# script is used to print all cocoapod dependencies
+# of a given swift project. To be usable, please
+# make ppods executable and add it to your path.
+# You can read more here under the section "Scripts" 
+# => https://github.com/dcts/license-scraper/#Scripts
+
+# USAGE:
+# 1. cd to your swift project
+# 2. run in your terminal: ppods > /my/path/myOutputFile.txt
+# 3. myOutputFile.txt contains a list of all dependant cocoapods

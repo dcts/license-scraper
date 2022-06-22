@@ -3,8 +3,11 @@ const axios = require("axios");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
+// load helpers
+const { getDom } = require("./src/functions/helper.js");
 // load scraper
 const LicenseScraper = require("./src/index.js");
+
 
 // GREET DEVELOPER
 console.log("\n\n");
