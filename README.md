@@ -14,7 +14,7 @@ await LicenseScraper.npmPackage("opensea-scraper");
 await LicenseScraper.githubRepo("dcts/opensea-scraper");
 
 // RubyGems (uses github helper)
-// @TODO
+await LicenseScraper.rubyGem("rails");
 
 // CocoaPods (uses github helper)
 // @TODO
