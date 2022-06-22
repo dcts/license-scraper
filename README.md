@@ -17,7 +17,7 @@ await LicenseScraper.githubRepo("dcts/opensea-scraper");
 await LicenseScraper.rubyGem("rails");
 
 // CocoaPods (uses github helper)
-// @TODO
+await LicenseScraper.cocoaPod("FirebaseUI");
 ```
 
 # Scripts
