@@ -20,3 +20,14 @@ await LicenseScraper.githubRepo("dcts/opensea-scraper");
 // @TODO
 ```
 
+# Scripts
+This repository contains bash scripts that allow you to print all dependencies to the terminal. You can then save all those outputs to a file. Instructions:
+1. navigate to your nodejs projects node_modules folder
+2. run the following code
+```bash
+# directory and filename of the output file
+outputFilePath = "/home/dcts/Schreibtisch/NODE_MODULES.txt" 
+
+# run and save output to file
+pmodules > outputFilePath
+```
