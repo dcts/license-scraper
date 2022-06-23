@@ -12,7 +12,7 @@ const cocoaPod = async (podName) => {
   // scrape github for additional info
   let licenseUrl = null;
   let licenseNameGithub = null; 
-  const githubPath = _cocoapodsGithubPath(dom);
+  const githubPath = _cocoapodsGithubPath(dom, podName);
   if (githubPath) {
     const githubResult = await githubRepo(githubPath);
     licenseNameGithub = githubResult.licenseNameGithub;
@@ -39,7 +39,8 @@ function _cocoapodsLicenseName(dom, podName) {
   try {
     const document = dom.window.document;
     const matchingTr = Array.from(document.querySelectorAll(".header tr")).find(tr => tr.textContent.startsWith("License"));
-    return matchingTr.querySelector("td:last-child").textContent.trim();
+    const licenseName = matchingTr.querySelector("td:last-child").textContent.trim();
+    return licenseName === "NOASSERTION" ? null : licenseName;
 
   } catch(err) {
     console.warn(`WARN: no license found on cocoapods for pod: ${podName}`);
