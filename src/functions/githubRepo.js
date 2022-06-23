@@ -26,8 +26,9 @@ function _getTargetDiv(dom, githubPath) {
 }
 function _getLicenseName(targetDiv, githubPath) {
   try {
-    const licenseName = targetDiv.textContent.trim(); // get name
-    return licenseName === "View license" ? null : licenseName;
+    let licenseName = targetDiv.textContent.trim(); // get name
+    licenseName = licenseName.split("\n")[0].trim(); // if multi line, only take first line
+    return (licenseName === "View license" || licenseName.includes("Unknown")) ? null : licenseName;
   } catch(err) {
     console.warn(`WARN: could not find licenseName for https://github.com/${githubPath}`)
     return null;
