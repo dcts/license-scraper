@@ -56,9 +56,10 @@ function _npmLicenseName(dom) {
   try {
     const document = dom.window.document;
     const XPathResult = dom.window.XPathResult;
-    const matchingElement = document.evaluate("//h3[text()='License']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    const matchingElement = document.evaluate("//div[contains(@class, 'fdbf4038')]//h3[text()='License']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     const targetP = matchingElement.nextElementSibling;
-    return targetP.textContent.trim();
+    const licenseName = targetP.textContent.trim();
+    return licenseName;
      
   } catch(err) {
     console.log(err);
