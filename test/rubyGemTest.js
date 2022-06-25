@@ -1,12 +1,12 @@
 const test = require('ava');
 const LicenseScraper = require("../src/index.js");
 
-// @TODO: add more testcases 
+// @TODO: add testcases 
 const testInputs = [
   {
-    name: "opensea-scraper",
-    expectedName: "MIT",
-    expectedUrl: "inputhere...",
+    name: "",
+    expectedName: "",
+    expectedUrl: "",
   },
   {
     name: "",
@@ -37,13 +37,12 @@ const testInputs = [
 
 testInputs.forEach(testInputObj => {
   const {name, expectedName, expectedUrl} = testInputObj;
-  test(`scraping license for npm package ${name} (https://npmjs.com/package/${name})`, async t => {
-    const result = await LicenseScraper.npmPackage(name);
+  test(`scraping license for ruby gem: ${name} (https://rubygems.org/gems/${name})`, async t => {
+    const result = await LicenseScraper.cocoaPod(name);
     t.is(expectedName, result.licenseName);
     t.is(expectedUrl, result.licenseUrl);
   });
 })
 
-// @TODO: special cases where npmLicense is "NOASSETION"
-// @TODO: special cases where github license is "View License"
+// @TODO: special cases
 
