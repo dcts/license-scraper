@@ -4,32 +4,32 @@ const LicenseScraper = require("../src/index.js");
 // @TODO: add more testcases 
 const testInputs = [
   {
-    name: "opensea-scraper",
-    expectedName: "MIT",
-    expectedUrl: "inputhere...",
-  },
-  {
-    name: "",
+    name: "1",
     expectedName: "",
     expectedUrl: "",
   },
   {
-    name: "",
+    name: "2",
     expectedName: "",
     expectedUrl: "",
   },
   {
-    name: "",
+    name: "3",
     expectedName: "",
     expectedUrl: "",
   },
   {
-    name: "",
+    name: "4",
     expectedName: "",
     expectedUrl: "",
   },
   {
-    name: "",
+    name: "5",
+    expectedName: "",
+    expectedUrl: "",
+  },
+  {
+    name: "6",
     expectedName: "",
     expectedUrl: "",
   },
@@ -38,9 +38,14 @@ const testInputs = [
 testInputs.forEach(testInputObj => {
   const {name, expectedName, expectedUrl} = testInputObj;
   test(`scraping license for npm package ${name} (https://npmjs.com/package/${name})`, async t => {
-    const result = await LicenseScraper.npmPackage(name);
-    t.is(expectedName, result.licenseName);
-    t.is(expectedUrl, result.licenseUrl);
+    try {
+      const result = await LicenseScraper.npmPackage(name);
+      t.is(expectedName, result.licenseName);
+      t.is(expectedUrl, result.licenseUrl);
+
+    } catch(err) {
+      t.is(true, "Error thrown: " + err);
+    }
   });
 })
 

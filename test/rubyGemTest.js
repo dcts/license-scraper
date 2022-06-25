@@ -4,32 +4,32 @@ const LicenseScraper = require("../src/index.js");
 // @TODO: add testcases 
 const testInputs = [
   {
-    name: "",
+    name: "1",
     expectedName: "",
     expectedUrl: "",
   },
   {
-    name: "",
+    name: "2",
     expectedName: "",
     expectedUrl: "",
   },
   {
-    name: "",
+    name: "3",
     expectedName: "",
     expectedUrl: "",
   },
   {
-    name: "",
+    name: "4",
     expectedName: "",
     expectedUrl: "",
   },
   {
-    name: "",
+    name: "5",
     expectedName: "",
     expectedUrl: "",
   },
   {
-    name: "",
+    name: "6",
     expectedName: "",
     expectedUrl: "",
   },
@@ -38,9 +38,14 @@ const testInputs = [
 testInputs.forEach(testInputObj => {
   const {name, expectedName, expectedUrl} = testInputObj;
   test(`scraping license for ruby gem: ${name} (https://rubygems.org/gems/${name})`, async t => {
-    const result = await LicenseScraper.cocoaPod(name);
-    t.is(expectedName, result.licenseName);
-    t.is(expectedUrl, result.licenseUrl);
+    try {
+      const result = await LicenseScraper.cocoaPod(name);
+      t.is(expectedName, result.licenseName);
+      t.is(expectedUrl, result.licenseUrl);
+
+    } catch(err) {
+      t.is(true, "Error thrown: " + err);
+    }
   });
 })
 
