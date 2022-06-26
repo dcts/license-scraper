@@ -20,7 +20,7 @@ await LicenseScraper.rubyGem("rails");
 await LicenseScraper.cocoaPod("FirebaseUI");
 ```
 
-# Scripts
+# Scripts (WIP)
 This repository contains bash scripts that allow you to print all dependencies to the terminal. You can then save all those outputs to a file. Instructions:
 1. navigate to your nodejs projects node_modules folder
 2. run the following code
